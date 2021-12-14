@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 500px;
+            margin: 100px auto;
+            padding: 100px;
+            box-shadow: 5px 10px #888888;
+            border: 1px solid;
+            text-align: center;
+            font: 2em sans-serif;
+            background-color: rgb(245, 241, 237);
+        }
+        button{
+            padding: 20px;
+            margin: 10px;
+            color: aliceblue;
+        }
+        #start {
+            background-color: #0f9738;
+        }
+        #stop {
+            background-color: #ca2406;
+        }
+        #reset {
+            background-color: #1285d1;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>COUNTER</h2>
+        <p id="display">0</p>
+<button id="start">start</button>
+<button id="stop">stop</button>
+<button id="reset">Reset</button>
+    </div>
+<script>
+let counter=0;
+let setInterval_id = "";
+let output =function () {
+    counter++;
+    let display = document.getElementById('display').innerText = counter
+}
+let start = document.getElementById('start')
+start.addEventListener('click',function () {
+    setInterval_id = setInterval(output,1000)
+});
+
+let stop = document.getElementById("stop")
+stop.addEventListener('click',function () {
+    clearInterval(setInterval_id);
+});
+let reset = document.getElementById('reset')
+reset.addEventListener('click',function () {
+   clearInterval(setInterval_id);
+   counter=0;
+   document.getElementById("display").innerText=counter;
+});
+
+
+</script>
+</body>
+</html>
